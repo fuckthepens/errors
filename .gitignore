@@ -1,0 +1,100 @@
+
+        PS C:\Users\matt> python "Desktop/mybot.py"
+Traceback (most recent call last):
+  File "C:\Users\matt\AppData\Local\Programs\Python\Python36\lib\site-packages\requests\packages\urllib3\connectionpool.
+py", line 386, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 2, in raise_from
+  File "C:\Users\matt\AppData\Local\Programs\Python\Python36\lib\site-packages\requests\packages\urllib3\connectionpool.
+py", line 382, in _make_request
+    httplib_response = conn.getresponse()
+  File "C:\Users\matt\AppData\Local\Programs\Python\Python36\lib\http\client.py", line 1331, in getresponse
+    response.begin()
+  File "C:\Users\matt\AppData\Local\Programs\Python\Python36\lib\http\client.py", line 297, in begin
+    version, status, reason = self._read_status()
+  File "C:\Users\matt\AppData\Local\Programs\Python\Python36\lib\http\client.py", line 258, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "C:\Users\matt\AppData\Local\Programs\Python\Python36\lib\socket.py", line 586, in readinto
+    return self._sock.recv_into(b)
+  File "C:\Users\matt\AppData\Local\Programs\Python\Python36\lib\ssl.py", line 1002, in recv_into
+    return self.read(nbytes, buffer)
+  File "C:\Users\matt\AppData\Local\Programs\Python\Python36\lib\ssl.py", line 865, in read
+    return self._sslobj.read(len, buffer)
+  File "C:\Users\matt\AppData\Local\Programs\Python\Python36\lib\ssl.py", line 625, in read
+    v = self._sslobj.read(len, buffer)
+socket.timeout: The read operation timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\matt\AppData\Local\Programs\Python\Python36\lib\site-packages\requests\adapters.py", line 423, in send
+    timeout=timeout
+  File "C:\Users\matt\AppData\Local\Programs\Python\Python36\lib\site-packages\requests\packages\urllib3\connectionpool.
+py", line 649, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "C:\Users\matt\AppData\Local\Programs\Python\Python36\lib\site-packages\requests\packages\urllib3\util\retry.py",
+ line 347, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "C:\Users\matt\AppData\Local\Programs\Python\Python36\lib\site-packages\requests\packages\urllib3\packages\six.py
+", line 686, in reraise
+    raise value
+  File "C:\Users\matt\AppData\Local\Programs\Python\Python36\lib\site-packages\requests\packages\urllib3\connectionpool.
+py", line 600, in urlopen
+    chunked=chunked)
+  File "C:\Users\matt\AppData\Local\Programs\Python\Python36\lib\site-packages\requests\packages\urllib3\connectionpool.
+py", line 388, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "C:\Users\matt\AppData\Local\Programs\Python\Python36\lib\site-packages\requests\packages\urllib3\connectionpool.
+py", line 308, in _raise_timeout
+    raise ReadTimeoutError(self, url, "Read timed out. (read timeout=%s)" % timeout_value)
+requests.packages.urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='oauth.reddit.com', port=443): Read time
+d out. (read timeout=16.0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\matt\AppData\Local\Programs\Python\Python36\lib\site-packages\prawcore\requestor.py", line 46, in reque
+st
+    return self._http.request(*args, timeout=TIMEOUT, **kwargs)
+  File "C:\Users\matt\AppData\Local\Programs\Python\Python36\lib\site-packages\requests\sessions.py", line 488, in reque
+st
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\matt\AppData\Local\Programs\Python\Python36\lib\site-packages\requests\sessions.py", line 609, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\matt\AppData\Local\Programs\Python\Python36\lib\site-packages\requests\adapters.py", line 499, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='oauth.reddit.com', port=443): Read timed out. (read timeout=1
+6.0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "Desktop/mybot.py", line 9, in <module>
+    for comment in comments:
+  File "C:\Users\matt\AppData\Local\Programs\Python\Python36\lib\site-packages\praw\models\util.py", line 65, in stream_
+generator
+    limit=limit, params={'before': before_fullname}))):
+  File "C:\Users\matt\AppData\Local\Programs\Python\Python36\lib\site-packages\praw\models\listing\generator.py", line 5
+2, in __next__
+    self._next_batch()
+  File "C:\Users\matt\AppData\Local\Programs\Python\Python36\lib\site-packages\praw\models\listing\generator.py", line 6
+2, in _next_batch
+    self._listing = self._reddit.get(self.url, params=self.params)
+  File "C:\Users\matt\AppData\Local\Programs\Python\Python36\lib\site-packages\praw\reddit.py", line 320, in get
+    data = self.request('GET', path, params=params)
+  File "C:\Users\matt\AppData\Local\Programs\Python\Python36\lib\site-packages\praw\reddit.py", line 404, in request
+    params=params)
+  File "C:\Users\matt\AppData\Local\Programs\Python\Python36\lib\site-packages\prawcore\sessions.py", line 148, in reque
+st
+    params=params, url=url)
+  File "C:\Users\matt\AppData\Local\Programs\Python\Python36\lib\site-packages\prawcore\sessions.py", line 76, in _reque
+st_with_retries
+    params=params)
+  File "C:\Users\matt\AppData\Local\Programs\Python\Python36\lib\site-packages\prawcore\rate_limit.py", line 29, in call
+
+    response = request_function(*args, **kwargs)
+  File "C:\Users\matt\AppData\Local\Programs\Python\Python36\lib\site-packages\prawcore\requestor.py", line 48, in reque
+st
+    raise RequestException(exc, args, kwargs)
+prawcore.exceptions.RequestException: error with request HTTPSConnectionPool(host='oauth.reddit.com', port=443): Read ti
+med out. (read timeout=16.0)
